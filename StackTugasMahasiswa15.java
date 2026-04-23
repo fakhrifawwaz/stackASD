@@ -46,7 +46,6 @@ public class StackTugasMahasiswa15 {
         }
     }
 
-    // mahasiswa pertama yang mengumpulkan  soal 4
     public Mahasiswa15 peekBottom() {
         if (!isEmpty()) {
             return stack[0];
@@ -56,9 +55,23 @@ public class StackTugasMahasiswa15 {
         }
     }
 
-    // jumlahTugas yang sudah dikumpulkan  soal 5
     public int jumlahTugas() {
         return top + 1;
+    }
+
+    // Konversi nilai desimal ke biner
+    public String konversiDesimalKeBiner(int nilai) {
+        StackKonversi15 stack = new StackKonversi15();
+        while (nilai > 0) {
+            int sisa = nilai % 2;
+            stack.push(sisa);
+            nilai = nilai / 2;
+        }
+        String biner = new String();
+        while (!stack.isEmpty()) {
+            biner += stack.pop();
+        }
+        return biner;
     }
 
     public void print() {
