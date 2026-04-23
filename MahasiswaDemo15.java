@@ -16,7 +16,7 @@ public class MahasiswaDemo15 {
             System.out.println("6. Menghitung Jumlah Tugas");
             System.out.print("Pilih: ");
             pilih = scan.nextInt();
-            scan.nextLine();
+            scan.nextLine(); // flush newline
 
             switch (pilih) {
                 case 1:
@@ -39,7 +39,10 @@ public class MahasiswaDemo15 {
                         int nilai = scan.nextInt();
                         scan.nextLine();
                         dinilai.tugasDinilai(nilai);
-                        System.out.printf("Nilai tugas %s adalah %d%n", dinilai.nama, nilai);
+                        System.out.printf("Nilai Tugas %s adalah %d%n", dinilai.nama, nilai);
+                        // tampilkan nilai biner
+                        String biner = stack.konversiDesimalKeBiner(nilai);
+                        System.out.println("Nilai Biner Tugas: " + biner);
                     }
                     break;
 
@@ -59,13 +62,12 @@ public class MahasiswaDemo15 {
                 case 5:
                     Mahasiswa15 terbawah = stack.peekBottom();
                     if (terbawah != null) {
-                        System.out.println("Mahasiswa pertama mengumpulkan tugas: " + terbawah.nama
-                                + " (" + terbawah.nim + " - " + terbawah.kelas + ")");
+                        System.out.println("Mahasiswa pertama mengumpulkan tugas: "
+                                + terbawah.nama + " (" + terbawah.nim + " - " + terbawah.kelas + ")");
                     }
                     break;
 
                 case 6:
-                    // ── diubah dari stack.count() → stack.jumlahTugas() ──
                     System.out.println("Jumlah tugas yang sudah dikumpulkan: " + stack.jumlahTugas());
                     break;
 
