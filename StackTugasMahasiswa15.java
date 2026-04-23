@@ -10,19 +10,11 @@ public class StackTugasMahasiswa15 {
     }
 
     public boolean isFull() {
-        if (top == size -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return top == size - 1;
     }
 
-    public boolean isEmpty(){
-        if (top == -1) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean isEmpty() {
+        return top == -1;
     }
 
     public void push(Mahasiswa15 mhs) {
@@ -40,7 +32,7 @@ public class StackTugasMahasiswa15 {
             top--;
             return m;
         } else {
-            System.out.println("Stack kosong! Tidak ada tugas untuk dinilai");
+            System.out.println("Stack kosong! Tidak ada tugas untuk dinilai.");
             return null;
         }
     }
@@ -49,14 +41,30 @@ public class StackTugasMahasiswa15 {
         if (!isEmpty()) {
             return stack[top];
         } else {
-            System.out.println("Stack kosong! Tidak ada tugas yang dikumpulkan");
+            System.out.println("Stack kosong! Tidak ada tugas yang dikumpulkan.");
             return null;
         }
     }
+
+    // mahasiswa pertama yang mengumpulkan  soal 4
+    public Mahasiswa15 peekBottom() {
+        if (!isEmpty()) {
+            return stack[0];
+        } else {
+            System.out.println("Stack kosong! Tidak ada tugas di bagian terbawah.");
+            return null;
+        }
+    }
+
+    // jumlahTugas yang sudah dikumpulkan  soal 5
+    public int jumlahTugas() {
+        return top + 1;
+    }
+
     public void print() {
-        for (int i = 0; i <= top; i++) {
+        for (int i = top; i >= 0; i--) {
             System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
         }
-        System.out.println("");
+        System.out.println();
     }
 }
